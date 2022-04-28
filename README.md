@@ -22,7 +22,7 @@ You need to copy the Webhook URL from LIR application in Webhook URL field.
 Select the build statuses you want to get alerts in LIR. Select the Priority for the alert, corresponding to the build status.
 If you want to let open alerts in LIR to get Closed when build status is Success, select 'Resolve on Back-To-Normal'.
 
-![LIR](https://code.devsnc.com/dev/air-external-integration/blob/scratch/STRY53446211/plugins/observability/jenkins/lightstep-incident-response/post-build%20action.png)
+![LIR](https://github.com/ServiceNow/lightstep-incident-response/blob/main/post-build%20action.png)
 
 # Sample Payload
 
