@@ -12,7 +12,10 @@ import hudson.tasks.BuildStepDescriptor;
 import hudson.tasks.Publisher;
 import hudson.model.AbstractProject;
 import hudson.Extension;
+import hudson.util.ListBoxModel;
 import java.io.IOException;
+import java.util.LinkedHashMap;
+import java.util.Map;
 import org.kohsuke.stapler.DataBoundConstructor;
 
 public class LightstepWebhookPublisher extends Notifier{
@@ -70,5 +73,41 @@ public class LightstepWebhookPublisher extends Notifier{
 			return "Send alerts to Lightstep Incident Response";
 		}
 
+		public ListBoxModel doFillFailureSeverityItems() {
+			ListBoxModel failureSevModel = addSeverityValues();
+			return failureSevModel;
+		}
+
+		public ListBoxModel doFillUnstableSeverityItems() {
+			ListBoxModel unstableSevModel = addSeverityValues();
+			return unstableSevModel;
+		}
+
+		public ListBoxModel doFillAbortedSeverityItems() {
+			ListBoxModel abortedSevModel = addSeverityValues();
+			return abortedSevModel;
+		}
+
+		public LinkedHashMap<String, String> setSeverityValues () {
+			LinkedHashMap<String, String> severity = new LinkedHashMap();
+			severity.put("P1-Critical","critical");
+			severity.put("P2-High", "high");
+			severity.put("P3-Moderate", "moderate");
+			severity.put("P4-Low", "low");
+			severity.put("P5-Informational", "informational");
+			return severity;
+		}
+
+		public ListBoxModel addSeverityValues() {
+			ListBoxModel model = new ListBoxModel();
+			LinkedHashMap<String, String> sevHashMap = setSeverityValues();
+			for (Map.Entry<String, String> mapElement :
+					sevHashMap.entrySet()) {
+				String sevKey = mapElement.getKey();
+				String sevValue = mapElement.getValue();
+				model.add(sevKey, sevValue);
+			}
+			return model;
+		}
 	}
 }

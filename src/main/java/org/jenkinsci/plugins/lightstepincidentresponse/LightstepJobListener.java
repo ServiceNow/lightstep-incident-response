@@ -53,7 +53,12 @@ public class LightstepJobListener extends RunListener<AbstractBuild> {
 		if (webHookUrl.isEmpty()) {
 			log.severe("No webhook URL provided.");
 		}
-		String buildUrl = Jenkins.getInstance().getRootUrl() + build.getUrl();
+		String buildUrl = "";
+		if (Jenkins.get().getRootUrl() == null) {
+			buildUrl = build.getUrl();
+		} else {
+			buildUrl = Jenkins.get().getRootUrl() + build.getUrl();
+		}
 		String jobName = build.getProject().getDisplayName();
 		String buildName = build.getDisplayName();
 		Integer buildNum =  build.number;

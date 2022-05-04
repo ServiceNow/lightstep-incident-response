@@ -10,43 +10,28 @@
 	</f:entry>
 	<f:entry title="Select when to trigger alert" field="trigger"/>
 	<f:entry title="When Build status is failure" field="failureSeverity" name="failureSeverity">
-		<f:checkbox name="onFailure" checked="${instance.onFailure}"/>
-			<select name="failureSeverity" style="
+		<f:checkbox name="onFailure" field="onFailure"/>
+		<f:select field="failureSeverity" style="
     padding: 2px;
-    margin-left: 25px;">
-				<option value="critical" selected="${instance.failureSeverity.equals('critical')? 'true':null}">P1-Critical</option>
-				<option value="high" selected="${instance.failureSeverity.equals('high')? 'true':null}">P2-High</option>
-				<option value="moderate" selected="${instance.failureSeverity.equals('moderate')? 'true':null}">P3-Moderate</option>
-				<option value="low" selected="${instance.failureSeverity.equals('low')? 'true':null}">P4-Low</option>
-				<option value="informational" selected="${instance.failureSeverity.equals('informational')? 'true':null}">P5-Informational</option>
-			</select>
+    margin-left: 25px; width:fit-content"/>
 	</f:entry>
+
 	<f:entry title="When Build status is unstable" field="unstableSeverity" name="unstableSeverity">
-		<f:checkbox name="onUnstable" checked="${instance.onUnstable}"/>
-		<select name="unstableSeverity" style="
+		<f:checkbox name="onUnstable" field="onUnstable"/>
+		<f:select field="unstableSeverity" style="
     padding: 2px;
-    margin: 10px;">
-			<option value="critical" selected="${instance.unstableSeverity.equals('critical')? 'true':null}">P1-Critical</option>
-			<option value="high" selected="${instance.unstableSeverity.equals('high')? 'true':null}">P2-High</option>
-			<option value="moderate" selected="${instance.unstableSeverity.equals('moderate')? 'true':null}">P3-Moderate</option>
-			<option value="low" selected="${instance.unstableSeverity.equals('low')? 'true':null}">P4-Low</option>
-			<option value="informational" selected="${instance.unstableSeverity.equals('informational')? 'true':null}">P5-Informational</option>
-		</select>
+    margin-left: 10px; width:fit-content"/>
 	</f:entry>
+
 	<f:entry title="When Build status is aborted" field="abortedSeverity" name="abortedSeverity">
-		<f:checkbox name="onAborted" checked="${instance.onAborted}"/>
-		<select name="abortedSeverity" style="
+		<f:checkbox name="onAborted" field="onAborted"/>
+		<f:select field="abortedSeverity" style="
     padding: 2px;
-    margin-left: 15px;">
-			<option value="critical" selected="${instance.abortedSeverity.equals('critical')? 'true':null}">P1-Critical</option>
-			<option value="high" selected="${instance.abortedSeverity.equals('high')? 'true':null}">P2-High</option>
-			<option value="moderate" selected="${instance.abortedSeverity.equals('moderate')? 'true':null}">P3-Moderate</option>
-			<option value="low" selected="${instance.abortedSeverity.equals('low')? 'true':null}">P4-Low</option>
-			<option value="informational" selected="${instance.abortedSeverity.equals('informational')? 'true':null}">P5-Informational</option>
-		</select>
+    margin-left: 15px; width:fit-content"/>
 	</f:entry>
+
 	<f:entry title="Resolve on Back-To-Normal" style="
     margin-top: 20px;">
-		<f:checkbox name="onResolve" checked="${instance.onResolve}"/>
+		<f:checkbox name="onResolve" field="onResolve"/>
 	</f:entry>
 </j:jelly>
