@@ -9,22 +9,22 @@
 		<f:textbox />
 	</f:entry>
 	<f:entry title="Select when to trigger alert" field="trigger"/>
-	<f:entry title="When Build status is failure" field="failureSeverity" name="failureSeverity">
-		<f:checkbox name="onFailure" field="onFailure"/>
+	<f:entry title="When Build status is failure" field="failureSeverity">
+		<f:checkbox field="onFailure"/>
 		<f:select field="failureSeverity" style="
     padding: 2px;
     margin-left: 25px; width:fit-content"/>
 	</f:entry>
 
-	<f:entry title="When Build status is unstable" field="unstableSeverity" name="unstableSeverity">
-		<f:checkbox name="onUnstable" field="onUnstable"/>
+	<f:entry title="When Build status is unstable" field="unstableSeverity">
+		<f:checkbox field="onUnstable"/>
 		<f:select field="unstableSeverity" style="
     padding: 2px;
     margin-left: 10px; width:fit-content"/>
 	</f:entry>
 
-	<f:entry title="When Build status is aborted" field="abortedSeverity" name="abortedSeverity">
-		<f:checkbox name="onAborted" field="onAborted"/>
+	<f:entry title="When Build status is aborted" field="abortedSeverity">
+		<f:checkbox field="onAborted"/>
 		<f:select field="abortedSeverity" style="
     padding: 2px;
     margin-left: 15px; width:fit-content"/>
@@ -32,6 +32,6 @@
 
 	<f:entry title="Resolve on Back-To-Normal" style="
     margin-top: 20px;">
-		<f:checkbox name="onResolve" field="onResolve"/>
+		<f:checkbox field="onResolve"/>
 	</f:entry>
 </j:jelly>

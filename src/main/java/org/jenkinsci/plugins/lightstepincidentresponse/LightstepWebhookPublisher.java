@@ -56,12 +56,12 @@ public class LightstepWebhookPublisher extends Notifier{
 	}
 
 	@Override
-	public LighstepWebhookPublisherDescriptor getDescriptor() {
-		return (LighstepWebhookPublisherDescriptor) super.getDescriptor();
+	public LightstepWebhookPublisherDescriptor getDescriptor() {
+		return (LightstepWebhookPublisherDescriptor) super.getDescriptor();
 	}
 
 	@Extension
-	public static class LighstepWebhookPublisherDescriptor extends BuildStepDescriptor<Publisher> {
+	public static class LightstepWebhookPublisherDescriptor extends BuildStepDescriptor<Publisher> {
 
 		@Override
 		public boolean isApplicable(Class<? extends AbstractProject> jobType) {
