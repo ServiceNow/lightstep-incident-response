@@ -68,11 +68,14 @@ public class LightstepWebhookPublisher extends Notifier {
 			throws InterruptedException, IOException {
 
 		Result result = build.getResult();
-		String res = result.toString();
+		String res = "";
 
-		if (result == null) {
+		if (result != null) {
+			res = result.toString();
+		} else {
 			log.severe("No build result.");
 		}
+
 		String webHookUrl = this.webHookUrl;
 		if (webHookUrl.isEmpty()) {
 			log.severe("No webhook URL provided.");
@@ -132,6 +135,8 @@ public class LightstepWebhookPublisher extends Notifier {
 						status = "aborted";
 					}
 					break;
+				default:
+					log.info("Build result did not match. Default case executed.");
 			}
 			if (!severity.isEmpty() && !status.isEmpty()) {
 				event.put("status", status);
@@ -150,7 +155,12 @@ public class LightstepWebhookPublisher extends Notifier {
 			Request request = new Request.Builder().url(url).post(body).build();
 			OkHttpClient client = new OkHttpClient();
 			Response response = client.newCall(request).execute();
-			String responseBody = response.body().string();
+			String responseBody = "";
+			if (response != null) {
+				responseBody = response.body().string();
+			} else {
+				log.info("No response from webhook");
+			}
 
 			try {
 				if (response.code() == 200) {
