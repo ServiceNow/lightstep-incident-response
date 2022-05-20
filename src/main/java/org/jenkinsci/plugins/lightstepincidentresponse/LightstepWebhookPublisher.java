@@ -166,9 +166,9 @@ public class LightstepWebhookPublisher extends Notifier {
 
 			try {
 				if (response.code() == 200) {
-					log.info("Webhook invocation successful " + responseBody);
+					log.info("Webhook invocation successful " + resp);
 				} else {
-					log.severe("Webhook invocation failed " + responseBody);
+					log.severe("Webhook invocation failed " + resp);
 				}
 			} catch (Exception e) {
 				log.severe("Exception occurred " + url + e);
