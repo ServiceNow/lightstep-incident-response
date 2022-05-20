@@ -156,7 +156,7 @@ public class LightstepWebhookPublisher extends Notifier {
 			OkHttpClient client = new OkHttpClient();
 			Response response = client.newCall(request).execute();
 			String responseBody = "";
-			if (response != null) {
+			if (response.body() != null) {
 				responseBody = response.body().string();
 			} else {
 				log.info("No response from webhook");
